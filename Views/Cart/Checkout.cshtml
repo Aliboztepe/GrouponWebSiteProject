@@ -1,0 +1,91 @@
+﻿@model Groupon.Models.Entity.ShippingDetails
+@{
+    ViewBag.Title = "Checkout";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div style="text-align:center" id="mainBody">
+    <div class="container">
+        <div class="row">
+            <div class="span12">
+                <h2>Order Information</h2>
+                <p>Please enter your order information.</p>
+                <hr />
+
+
+                @using (Html.BeginForm())
+
+
+                {
+                    
+                  <table  class="table table-bordered">
+                        <tr><th>Order Information</th></tr>
+                        <tr>
+                            <td>
+                                <form class="form-horizontal">
+                                    @Html.ValidationSummary()
+                                    <div class="control-group">
+                                        <label class="control-label" for="inputCountry">Name surname</label>
+                                        <div class="controls">
+                                            @Html.TextBoxFor(x => x.FullName, new { @class = "form-control" })
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label" for="inputPost">Adress Header</label>
+                                        <div class="controls">
+                                            @Html.TextBoxFor(x => x.AdresBasligi, new { @class = "form-control" })
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label" for="inputPost">Adress</label>
+                                        <div class="controls">
+                                            @Html.TextBoxFor(x => x.Adres, new { @class = "form-control" })
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label" for="inputPost">City</label>
+                                        <div class="controls">
+                                            @Html.TextBoxFor(x => x.Sehir, new { @class = "form-control" })
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label" for="inputPost">Town</label>
+                                        <div class="controls">
+                                            @Html.TextBoxFor(x => x.Semt, new { @class = "form-control" })
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label" for="inputPost">Neighborhood</label>
+                                        <div class="controls">
+                                            @Html.TextBoxFor(x => x.Mahalle, new { @class = "form-control" })
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label" for="inputPost">Post Code</label>
+                                        <div class="controls">
+                                            @Html.TextBoxFor(x => x.PostaKodu, new { @class = "form-control" })
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <div class="controls">
+                                            <button type="submit" class="btn btn-primary">Complete Order</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </td>
+                        </tr>
+                    </table>
+
+
+                  
+                }
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+

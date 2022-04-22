@@ -1,0 +1,23 @@
+﻿@model IEnumerable<Groupon.Models.Entity.Slider>
+    <div id="carouselBlk">
+        <div id="myCarousel" class="carousel slide">
+            <div class="carousel-inner">
+                @foreach (var item in Model)
+                {
+                    <div class="item">
+                        <div class="container">
+                            <a href="/"><img src="@item.Image" alt="" /></a>
+                            <h4>@item.Title</h4>
+                            <p>@Html.Raw(item.Description)</p>
+                        
+
+                        </div>
+                    </div>
+                }
+
+
+            </div>
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+            <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
+        </div>
+    </div>

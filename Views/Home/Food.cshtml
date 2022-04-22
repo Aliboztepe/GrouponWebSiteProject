@@ -1,0 +1,60 @@
+﻿@using PagedList
+@using PagedList.Mvc
+@model  IPagedList<Groupon.Models.Entity.Product>
+
+@{
+    ViewBag.Title = "Food";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="mainBody">
+    <div class="container">
+        <div class="row">
+            <!-- Sidebar ================================================== -->
+
+            @Html.Action("Sidebar", "Home")
+            <!-- Sidebar end=============================================== -->
+            <div class="span9">
+
+
+
+
+
+                <h4>Food Products</h4>
+                <ul class="thumbnails">
+                    @foreach (var item in Model)
+                    {
+                        <li class="span3">
+                            <div class="thumbnail">
+                                <a href="product_details.html"><img style="width:70px;height:100px" src="@item.Image" alt="" /></a>
+                                <div class="caption">
+                                    <h5>@item.Title</h5>
+                                    <div align="center">
+                                        <img style="width:50px;height:50px" src="~/Uploads/Images/discount.ico" alt="Discount" /> <p style="color:darkred;font-weight:bold">% @item.SalePercent</p>
+                                    </div>
+
+
+                                    <h4 style="text-align:center"><a class="btn" href="/ProductDetail/@item.ProductID"> <i class="icon-zoom-in"></i></a> <a class="btn" href="/Cart/AddToCart/@item.ProductID">Add to <i class="icon-shopping-cart"></i></a> <a class="btn btn-primary" href="/Cart/AddToCart/@item.ProductID">@item.Price TL</a></h4>
+                                </div>
+                            </div>
+                        </li>
+                    }
+
+
+
+                </ul>
+
+                <div class="pagination">
+                    <ul>
+                       @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))
+                    </ul>
+
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+

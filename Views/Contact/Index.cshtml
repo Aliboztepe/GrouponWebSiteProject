@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Groupon.Models.Entity.Contact>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 style="text-align:center">Contact Informations</h2>
+
+<p>
+    <a href="/contact/create" class="btn btn-success">Add</a>
+</p>
+<table class="table">
+    <tr>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.Adress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Phone)
+        </th>
+        
+        
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.Adress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Phone)
+        </td>
+        
+        
+        <td>
+            <a href="/Contact/Edit/@item.ContactID" class="btn btn-primary">Edit</a>
+            <a href="/Contact/Delete/@item.ContactID" class="btn btn-danger">Delete</a>
+        </td>
+    </tr>
+}
+
+</table>

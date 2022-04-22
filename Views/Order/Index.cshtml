@@ -1,0 +1,87 @@
+﻿@model IEnumerable<Groupon.Models.Entity.Order>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 style="text-align:center">Orders</h2>
+
+<p>
+    <a href="/Order/create" class="btn btn-success">Add</a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Order-Number
+        </th>
+        <th>
+            Total-Price
+        </th>
+        <th>
+            Order-Date
+        </th>
+        <th>
+            Name-Surname
+        </th>
+        <th>
+            Address-Header
+        </th>
+        <th>
+            Adress
+        </th>
+        <th>
+            City
+        </th>
+        <th>
+            Town
+        </th>
+        <th>
+            Neighborhood
+        </th>
+        <th>
+            Post-Code
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.OrderNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Total)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OrderDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FullName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AdresBasligi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Adres)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sehir)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Semt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Mahalle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PostaKodu)
+        </td>
+        <td>
+            <a href="/Order/Edit/@item.OrderID" class="btn btn-primary">Edit</a>
+            <a href="/Order/Delete/@item.OrderID" class="btn btn-danger">Delete</a>
+        </td>
+    </tr>
+}
+
+</table>

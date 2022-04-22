@@ -1,0 +1,14 @@
+﻿@model IEnumerable<Groupon.Models.Entity.Category>
+
+<div id="sidebar" class="span3">
+    <ul id="sideManu" class="nav nav-tabs nav-stacked">
+        @foreach (var item in Model)
+        {
+            <li><a href="/Home/@item.Title">@item.Title</a></li>
+        }
+    </ul>
+    <br />
+    <br />
+    <br />
+
+</div>

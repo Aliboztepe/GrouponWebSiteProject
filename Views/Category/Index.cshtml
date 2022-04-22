@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Groupon.Models.Entity.Category>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 style="text-align:center">Category Page</h2>
+
+<a href="/category/create" class="btn btn-success">Add</a>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+
+            <a href="/Category/Edit/@item.CategoryId" class="btn btn-primary">Edit</a>
+            <a href="/Category/Delete/@item.CategoryId" class="btn btn-danger">Delete</a>
+        </td>
+    </tr>
+}
+
+</table>

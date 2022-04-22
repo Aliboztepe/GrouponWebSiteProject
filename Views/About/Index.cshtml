@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Groupon.Models.Entity.About>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 style="text-align:center">About</h2>
+
+<p>
+    <a href="/About/create" class="btn btn-success">Add</a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>             @Html.Raw(item.Description)         </td>
+
+            <td>
+                <a href="/About/Edit/@item.AboutID" class="btn btn-primary">Edit</a>
+                <a href="/About/Delete/@item.AboutID" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+    }
+
+</table>
